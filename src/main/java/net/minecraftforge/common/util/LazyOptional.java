@@ -116,7 +116,7 @@ public class LazyOptional<T>
                 resolved.set(temp);
                 return resolved.get();
             }
-            catch (Throwable e)
+            catch (IllegalStateException e)
             {
                 return null;
             }
