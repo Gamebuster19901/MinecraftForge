@@ -279,7 +279,7 @@
     public final float func_213311_cf() {
        return this.field_213325_aI.field_220315_a;
     }
-@@ -2670,4 +2696,69 @@
+@@ -2670,4 +2696,72 @@
     public void func_213293_j(double p_213293_1_, double p_213293_3_, double p_213293_5_) {
        this.func_213317_d(new Vec3d(p_213293_1_, p_213293_3_, p_213293_5_));
     }
@@ -335,7 +335,10 @@
 +   public void onAddedToWorld() { this.isAddedToWorld = true; }
 +
 +   @Override
-+   public void onRemovedFromWorld() { this.isAddedToWorld = false; }
++   public void onRemovedFromWorld() {
++	  this.isAddedToWorld = false;
++	  net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(new net.minecraftforge.event.entity.EntityRemovedFromWorldEvent(this));
++   }
 +
 +   @Override
 +   public void revive() {
